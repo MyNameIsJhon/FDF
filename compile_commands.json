@@ -1512,11 +1512,51 @@
       "-Ilibft/includes",
       "-c",
       "-o",
+      "obj/srcs/draw.o",
+      "srcs/draw.c"
+    ],
+    "directory": "/Users/jordanriga/Desktop/prog_learning/42-school/FDF",
+    "file": "/Users/jordanriga/Desktop/prog_learning/42-school/FDF/srcs/draw.c",
+    "output": "/Users/jordanriga/Desktop/prog_learning/42-school/FDF/obj/srcs/draw.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g",
+      "-fsanitize=undefined",
+      "-Iincludes",
+      "-Imlx",
+      "-Ilibft/includes",
+      "-c",
+      "-o",
       "obj/srcs/fdf.o",
       "srcs/fdf.c"
     ],
     "directory": "/Users/jordanriga/Desktop/prog_learning/42-school/FDF",
     "file": "/Users/jordanriga/Desktop/prog_learning/42-school/FDF/srcs/fdf.c",
     "output": "/Users/jordanriga/Desktop/prog_learning/42-school/FDF/obj/srcs/fdf.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g",
+      "-fsanitize=undefined",
+      "-Iincludes",
+      "-Imlx",
+      "-Ilibft/includes",
+      "-c",
+      "-o",
+      "obj/srcs/fdfmaps.o",
+      "srcs/fdfmaps.c"
+    ],
+    "directory": "/Users/jordanriga/Desktop/prog_learning/42-school/FDF",
+    "file": "/Users/jordanriga/Desktop/prog_learning/42-school/FDF/srcs/fdfmaps.c",
+    "output": "/Users/jordanriga/Desktop/prog_learning/42-school/FDF/obj/srcs/fdfmaps.o"
   }
 ]

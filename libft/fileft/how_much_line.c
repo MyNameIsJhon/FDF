@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   how_much_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jriga <jriga@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/31 13:48:27 by jriga             #+#    #+#             */
-/*   Updated: 2025/05/31 16:41:05 by jriga            ###   ########.fr       */
+/*   Created: 2025/05/31 18:30:27 by jriga             #+#    #+#             */
+/*   Updated: 2025/05/31 18:46:06 by jriga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include <fcntl.h>
+#include "fileft.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-# define WIDTH 1920
-# define HEIGHT 1080
-
-typedef struct s_fdf 
+int	how_much_line(char *filepath)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		bpp;
-	int		size_line;
-	int		endian;
-	char	*data_add;
-}			t_fdf;
+	int		fd;
+	int	i;
+	char	*line;
 
-void put_pixel(t_fdf *env, int x, int y, int color);
-
-#endif
+	fd = open(filepath, O_RDONLY);
+	i = 0;
+	if (fd <= 0)
+		return 0;
+	while ((line = get_next_line(fd)))
+	{
+		printf("%i",i++);
+		free(line);
+	}
+	close(fd);
+	return (i);
+}

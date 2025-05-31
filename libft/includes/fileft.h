@@ -6,7 +6,7 @@
 /*   By: jriga <jriga@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 21:10:42 by jriga             #+#    #+#             */
-/*   Updated: 2025/05/30 21:10:45 by jriga            ###   ########.fr       */
+/*   Updated: 2025/05/31 18:45:24 by jriga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int nb, int fd);
 void	ft_putstr_fd(char *s, int fd);
+int		how_much_line(char *filepath);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jriga <jriga@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 16:22:25 by jriga             #+#    #+#             */
-/*   Updated: 2025/05/31 16:35:24 by jriga            ###   ########.fr       */
+/*   Updated: 2025/05/31 16:43:00 by jriga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ void put_pixel(t_fdf *env, int x, int y, int color)
 		env->data_add[offset] = color & 0xFF;
 	}
 }
-
