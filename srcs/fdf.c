@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	ft_printf("%d", how_much_line("./fdf.c"));
+	ft_printf("%d", ft_count_line("./srcs/fdf.c"));
 	/* t_fdf	*env; */
 	/*  */
 	/* env = (t_fdf*)malloc(sizeof (t_fdf)); */

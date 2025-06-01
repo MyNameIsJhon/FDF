@@ -6,7 +6,7 @@
 /*   By: jriga <jriga@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 09:38:23 by jriga             #+#    #+#             */
-/*   Updated: 2025/05/04 17:45:26 by jriga            ###   ########.fr       */
+/*   Updated: 2025/06/01 13:09:24 by jriga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ void	*ft_malloc(size_t size);
 void	ft_free(void *ptr);
 size_t	ft_sizeof(void *ptr);
 void	*ft_realloc(void *ptr, size_t size);
+int		ft_strcount_char(const char *str, char c);
 
 #endif

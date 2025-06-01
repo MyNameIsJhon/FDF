@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   how_much_line.c                                    :+:      :+:    :+:   */
+/*   ft_count_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jriga <jriga@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/31 18:30:27 by jriga             #+#    #+#             */
-/*   Updated: 2025/06/01 13:06:54 by jriga            ###   ########.fr       */
+/*   Created: 2025/06/01 12:50:41 by jriga             #+#    #+#             */
+/*   Updated: 2025/06/01 13:08:43 by jriga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
-#define CNT_BUFF 1024
 
-size_t ft_count_line(char *path)
+int ft_strcount_char(const char *str, char c)
 {
-	int		fd;
-	char	buff[CNT_BUFF + 1];
-	ssize_t	bytes;
-	size_t	rows;
-
-	fd = open(path, O_RDONLY);
-	bytes = 1;
-	rows = 0;
-	if (fd < 0)
-		return (0);
-	while (bytes >= 0)
-	{
-		bytes = read(fd, buff, CNT_BUFF);
-		buff[bytes] = '\0';
-		rows += ft_strcount_char(buff, '\n');
-	}
-	close(fd);
-	return (rows);
+    int i;
+	i = 0;
+    if (!str)
+        return 0;
+    while (*str)
+    {
+        if (*str == c)
+            i++;
+        str++;
+    }
+    return i;
 }
