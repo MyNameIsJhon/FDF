@@ -1,40 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   how_much_line.c                                    :+:      :+:    :+:   */
+/*   get_file.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jriga <jriga@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/31 18:30:27 by jriga             #+#    #+#             */
-/*   Updated: 2025/06/01 13:06:54 by jriga            ###   ########.fr       */
+/*   Created: 2025/06/01 15:07:19 by jriga             #+#    #+#             */
+/*   Updated: 2025/06/01 17:02:14 by jriga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "fileft.h"
 #include "libft.h"
-#define CNT_BUFF 1024
-
-size_t ft_count_line(char *path)
+#include "stdlib.h"
+# define FILE_BUFF 4096
+//TODO: finir fonction 
+typedef struct s_content
 {
-	int		fd;
-	char	buff[CNT_BUFF + 1];
-	ssize_t	bytes;
-	size_t	rows;
+	char	*content;
+	size_t	max;
+	size_t	actual;
+}			t_content;
+
+static ssize_t read_buf(char *buffer, int fd)
+{
+	ssize_t bytes;
+
+	bytes = read(fd, buffer, FILE_BUFF);
+	return (bytes);
+}
+
+char *get_file(char *path)
+{
+	char		buff[BUFFER_SIZE];
+	int			fd;
+	ssize_t		bytes;
+	t_content	file;
 
 	fd = open(path, O_RDONLY);
 	bytes = 1;
-	rows = 0;
 	if (fd < 0)
-		return (0);
-	while (bytes >= 0)
+		return (NULL);
+	while (bytes > 0)
 	{
-		bytes = read(fd, buff, CNT_BUFF);
-		buff[bytes] = '\0';
-		rows += ft_strcount_char(buff, '\n');
+
 	}
-	close(fd);
-	return (rows);
 }

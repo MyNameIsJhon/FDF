@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jriga <jriga@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/31 13:48:27 by jriga             #+#    #+#             */
-/*   Updated: 2025/06/01 15:06:13 by jriga            ###   ########.fr       */
+/*   Created: 2025/06/01 17:03:52 by jriga             #+#    #+#             */
+/*   Updated: 2025/06/01 17:35:17 by jriga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef VECTOR_H
+# define VECTOR_H
+#include <stddef.h>
 
-# define WIDTH 1920
-# define HEIGHT 1080
-
-typedef struct s_fdf 
+typedef enum vec_type
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		bpp;
-	int		size_line;
-	int		endian;
-	char	*data_add;
-}			t_fdf;
+	INT,
+	LONG,
+	CHAR,
+} vec_type;
 
-void put_pixel(t_fdf *env, int x, int y, int color);
+typedef struct s_vector
+{
+	void		*content;
+	size_t		max;
+	size_t		actual;
+	int			size_type;
+	vec_type	type;
+}			t_vector;
 
-#endif
+# endif

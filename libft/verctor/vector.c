@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jriga <jriga@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/31 13:48:27 by jriga             #+#    #+#             */
-/*   Updated: 2025/06/01 15:06:13 by jriga            ###   ########.fr       */
+/*   Created: 2025/06/01 17:20:27 by jriga             #+#    #+#             */
+/*   Updated: 2025/06/01 17:32:28 by jriga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "vector.h"
+#include "libft.h"
 
-# define WIDTH 1920
-# define HEIGHT 1080
+#define VECTOR_MAX 1024
+#define VECTOR_CAP 4020
 
-typedef struct s_fdf 
+t_vector *vector_init(int type)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		bpp;
-	int		size_line;
-	int		endian;
-	char	*data_add;
-}			t_fdf;
+	t_vector *vec;
 
-void put_pixel(t_fdf *env, int x, int y, int color);
-
-#endif
+	vec = ft_malloc(sizeof(t_vector));
+	if (!vec)
+		return (NULL);
+	vec->content = ft_malloc(VECTOR_CAP);
+	vec->actual = 0;
+	vec->max = VECTOR_CAP;
+	return (vec);
+}

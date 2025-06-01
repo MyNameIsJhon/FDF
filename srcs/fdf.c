@@ -5,9 +5,10 @@
 #include <stdlib.h>
 #include "fileft.h"
 
-int main(void)
+int main(int ac, char **av)
 {
-	ft_printf("%d", ft_count_line("./srcs/fdf.c"));
+	if (ac > 1)
+		ft_printf("%s", get_file(av[1]));
 	/* t_fdf	*env; */
 	/*  */
 	/* env = (t_fdf*)malloc(sizeof (t_fdf)); */
