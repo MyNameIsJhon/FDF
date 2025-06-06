@@ -19,6 +19,6 @@ size_t ft_sizeof(void *ptr)
 
 	if (!ptr)
 		return (0);
-	hdr = (t_header*)ptr - 1;
+	hdr = (t_header *)((char *)ptr - sizeof(t_header));
 	return (hdr->size);
 }

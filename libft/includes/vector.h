@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.c                                           :+:      :+:    :+:   */
+/*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jriga <jriga@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/01 17:20:27 by jriga             #+#    #+#             */
-/*   Updated: 2025/06/01 17:32:28 by jriga            ###   ########.fr       */
+/*   Created: 2025/06/01 17:03:52 by jriga             #+#    #+#             */
+/*   Updated: 2025/06/01 17:35:17 by jriga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
-#include "libft.h"
+#ifndef VECTOR_H
+# define VECTOR_H
+#include <stddef.h>
 
-#define VECTOR_MAX 1024
-#define VECTOR_CAP 4020
-
-t_vector *vector_init(int type)
+typedef struct s_vector
 {
-	t_vector *vec;
+	void		*content;
+	size_t		max;
+	size_t		actual;
+	int			size_type;
+}			t_vector;
 
-	vec = ft_malloc(sizeof(t_vector));
-	if (!vec)
-		return (NULL);
-	vec->content = ft_malloc(VECTOR_CAP);
-	vec->actual = 0;
-	vec->max = VECTOR_CAP;
-	return (vec);
-}
+t_vector *vec_strappend(t_vector *vec, char *str);
+t_vector *vector_init(int size_type, size_t space);
+void vec_free(t_vector *vec);
+
+# endif

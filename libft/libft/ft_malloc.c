@@ -22,5 +22,5 @@ void *ft_malloc(size_t size)
 	if (!hdr)
 		return (NULL);
 	hdr->size = size;
-	return ((void *) hdr + 1);
+	return (void *)((char *)hdr + sizeof(t_header));
 }

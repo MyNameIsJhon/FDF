@@ -14,20 +14,16 @@
 # define VECTOR_H
 #include <stddef.h>
 
-typedef enum vec_type
-{
-	INT,
-	LONG,
-	CHAR,
-} vec_type;
-
 typedef struct s_vector
 {
 	void		*content;
 	size_t		max;
 	size_t		actual;
 	int			size_type;
-	vec_type	type;
 }			t_vector;
+
+t_vector *vec_strappend(t_vector *vec, char *str);
+t_vector *vector_init(int size_type, size_t space);
+void vec_free(t_vector *vec);
 
 # endif

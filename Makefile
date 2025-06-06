@@ -1,7 +1,7 @@
 # === CONFIG ===
 NAME        := fdf
 CC          := cc
-CFLAGS      := -Wall -Wextra -Werror -g -fsanitize=undefined
+CFLAGS      := -Wall -Wextra -Werror -g -fsanitize=address
 RM          := rm -f
 MKDIR_P     := mkdir -p
 

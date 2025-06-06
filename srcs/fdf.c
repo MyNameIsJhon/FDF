@@ -7,10 +7,15 @@
 
 int main(int ac, char **av)
 {
+	char *file;
+
 	if (ac > 1)
-		ft_printf("%s", get_file(av[1]));
+	{
+		file = get_file(av[1]);
+		ft_printf("%s", file);
+	}
 	/* t_fdf	*env; */
-	/*  */
+	/**/
 	/* env = (t_fdf*)malloc(sizeof (t_fdf)); */
 	/* env->mlx = mlx_init(); */
 	/* env->win = mlx_new_window(env->mlx, WIDTH/2, HEIGHT/2, "hello world"); */

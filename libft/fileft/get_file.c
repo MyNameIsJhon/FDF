@@ -15,36 +15,47 @@
 #include "fileft.h"
 #include "libft.h"
 #include "stdlib.h"
-# define FILE_BUFF 4096
-//TODO: finir fonction 
-typedef struct s_content
-{
-	char	*content;
-	size_t	max;
-	size_t	actual;
-}			t_content;
-
-static ssize_t read_buf(char *buffer, int fd)
-{
-	ssize_t bytes;
-
-	bytes = read(fd, buffer, FILE_BUFF);
-	return (bytes);
-}
+#include "vector.h"
+#define FILE_BUFF 4096
 
 char *get_file(char *path)
 {
-	char		buff[BUFFER_SIZE];
+	char		buff[FILE_BUFF + 1]; // +1 pour le '\0'
 	int			fd;
 	ssize_t		bytes;
-	t_content	file;
+	char		*file;
+	t_vector	*vec;
 
 	fd = open(path, O_RDONLY);
-	bytes = 1;
 	if (fd < 0)
 		return (NULL);
-	while (bytes > 0)
-	{
 
+	vec = vector_init(sizeof(char), FILE_BUFF);
+	if (!vec)
+	{
+		close(fd);
+		return (NULL);
 	}
+
+	while ((bytes = read(fd, buff, FILE_BUFF)) > 0)
+	{
+		buff[bytes] = '\0'; // null-terminaison pour ft_strlen
+		vec = vec_strappend(vec, buff);
+		if (!vec)
+		{
+			close(fd);
+			return (NULL);
+		}
+	}
+	if (bytes < 0)
+	{
+		vec_free(vec);
+		close(fd);
+		return (NULL);
+	}
+
+	file = ft_strdup((char *)vec->content);
+	vec_free(vec);
+	close(fd);
+	return (file);
 }
