@@ -27,6 +27,15 @@ typedef struct s_fdf
 	char	*data_add;
 }			t_fdf;
 
-void put_pixel(t_fdf *env, int x, int y, int color);
+typedef struct s_map
+{
+	int	**map;
+	int	width;
+	int height;	
+}			t_map;
+
+void	map_get_dimensions(t_map *map, const char *file);
+t_map	*init_map(const char *file);
+void	put_pixel(t_fdf *env, int x, int y, int color);
 
 #endif

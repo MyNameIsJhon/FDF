@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int ft_strcount_char(const char *str, char c)
 {
     int i;
+
 	i = 0;
     if (!str)
         return 0;

@@ -15,6 +15,14 @@
 
 # include <stddef.h>
 
+typedef char t_bool;
+
+enum 
+{
+	TRUE,
+	FALSE
+};
+
 typedef enum e_type
 {
     TYPE_PTR,

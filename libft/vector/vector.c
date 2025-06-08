@@ -1,13 +1,12 @@
 /* ************************************************************************** */
-/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jriga <jriga@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/01 17:20:27 by jriga             #+#    #+#             */
-/*   Updated: 2025/06/01 17:32:28 by jriga            ###   ########.fr       */
+/*   Created: 2025/06/07 18:00:59 by jriga             #+#    #+#             */
+/*   Updated: 2025/06/07 18:01:11 by jriga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +15,6 @@
 #include <stdlib.h>
 
 #define VEC_MULTIPLIER 2
-
 
 t_vector *vector_init(int size_type, size_t space)
 {
@@ -59,6 +57,8 @@ t_vector *vec_strappend(t_vector *vec, char *data)
 	len = ft_strlen(data);
 	while (vec->actual + len >= vec->max)
 	{
+		ft_printf("max: %d\n", vec->max);
+		ft_printf("actual + len: %d\n", vec->actual + len);
 		vec = vec_realloc(vec);
 		if (!vec)
 			return (NULL);

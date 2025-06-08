@@ -8,12 +8,16 @@
 int main(int ac, char **av)
 {
 	char *file;
+	t_map	*map;
 
 	if (ac > 1)
 	{
 		file = get_file(av[1]);
 		ft_printf("%s", file);
+		map = init_map(file);
+		ft_printf("\nheight: %d\nwidth: %d\nnew count: %d", map->height, map->width,map->map[0][0]);
 	}
+
 	/* t_fdf	*env; */
 	/**/
 	/* env = (t_fdf*)malloc(sizeof (t_fdf)); */
