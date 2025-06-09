@@ -15,7 +15,7 @@ int main(int ac, char **av)
 		file = get_file(av[1]);
 		ft_printf("%s", file);
 		map = init_map(file);
-		ft_printf("\nheight: %d\nwidth: %d\nnew count: %d", map->height, map->width,map->map[0][0]);
+		ft_printf("\nheight: %d\nwidth: %d\nnew count: %d", map->height, map->width,map->map[3][3]);
 	}
 
 	/* t_fdf	*env; */

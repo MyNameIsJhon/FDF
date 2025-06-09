@@ -59,11 +59,31 @@ t_bool	map_alloc(t_map *map)
 	return (1);
 }
 
-void	map_parser(t_map *map, char *file)
+void	map_parser(t_map *map, const char *file)
 {
+	int	x;
+	int	y;
+
 	if (!map || !file)	
 		return ;
-
+	x = 0;
+	y = 0;
+	while (*file && map->height > y)
+	{
+		if (ft_isdigit(*file))
+		{
+			map->map[y][x] = ft_atoi(file);
+			while (ft_isdigit(*file))
+				file++;
+			x++;
+		}
+		if (*file == '\n')
+		{
+			y++;
+			x = 0;
+		}
+		file++;
+	}
 }
 
 t_map *init_map(const char *file)
@@ -77,5 +97,6 @@ t_map *init_map(const char *file)
 		return (NULL);
 	map_get_dimensions(map, file);
 	map_alloc(map);
+	map_parser(map, file);
 	return map;
 }
