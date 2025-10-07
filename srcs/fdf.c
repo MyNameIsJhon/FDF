@@ -80,6 +80,7 @@ int	main(int ac, char **av)
 	}
 	map = init_map(av[1], &window);
 	env = init_env(map, &window);
+	print_s_map(map);
 	if (!env || !map)
 		exit_fdf(env);
 	mlx_hook(env->win, 2, 1L << 0, key_hook, env);
