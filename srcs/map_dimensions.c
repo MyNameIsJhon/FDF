@@ -76,25 +76,34 @@ static void	parse_map_size(const char *file, t_point *size)
 {
 	int	x;
 	int	i;
+	int	in_value;
 
-	x = 1;
+	x = 0;
 	i = 0;
+	in_value = 0;
 	while (file[i])
 	{
+		if (file[i] != ' ' && file[i] != '\n' && !in_value)
+		{
+			in_value = 1;
+			x++;
+		}
+		if (file[i] == ' ' || file[i] == '\n')
+			in_value = 0;
 		if (file[i] == '\n')
 		{
-			size->y++;
 			if (x > size->x)
 				size->x = x;
-			x = 1;
-		}
-		else if (file[i] == ' ')
-		{
-			x++;
-			while (file[i] == ' ')
-				i++;
+			size->y++;
+			x = 0;
 		}
 		i++;
+	}
+	if (x > 0)
+	{
+		if (x > size->x)
+			size->x = x;
+		size->y++;
 	}
 }
 
