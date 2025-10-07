@@ -69,7 +69,7 @@
 #include "fdf.h"
 #include <stdio.h>
 
-void print_s_map(s_map *map)
+void print_s_map(t_map *map)
 {
 	printf("Map width: %d\n", map->width);
 	printf("Map height: %d\n", map->height);
