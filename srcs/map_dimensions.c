@@ -72,14 +72,22 @@ void	map_offset(t_window *window)
 	window->offset.y = window->padding + usable_h / 2;
 }
 
+static void	update_line_size(t_point *size, int *x)
+{
+	if (*x > size->x)
+		size->x = *x;
+	size->y++;
+	*x = 0;
+}
+
 static void	parse_map_size(const char *file, t_point *size)
 {
-	int	x;
 	int	i;
+	int	x;
 	int	in_value;
 
-	x = 0;
 	i = 0;
+	x = 0;
 	in_value = 0;
 	while (file[i])
 	{
@@ -91,20 +99,11 @@ static void	parse_map_size(const char *file, t_point *size)
 		if (file[i] == ' ' || file[i] == '\n')
 			in_value = 0;
 		if (file[i] == '\n')
-		{
-			if (x > size->x)
-				size->x = x;
-			size->y++;
-			x = 0;
-		}
+			update_line_size(size, &x);
 		i++;
 	}
 	if (x > 0)
-	{
-		if (x > size->x)
-			size->x = x;
-		size->y++;
-	}
+		update_line_size(size, &x);
 }
 
 t_point	get_map_size(const char *file)
