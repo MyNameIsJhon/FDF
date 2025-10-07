@@ -5,7 +5,7 @@
 NAME        := fdf
 
 CC          := cc
-CFLAGS      := -Wall -Wextra -Werror
+CFLAGS      := -Wall -Wextra -Werror -g
 INCLUDES    := -Iincludes -Imlx -Ilibft/includes
 
 SRC_DIR     := srcs
