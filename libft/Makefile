@@ -13,7 +13,7 @@ RM          := rm -f
 MKDIR_P     := mkdir -p
 
 # ---- Flags ----
-CFLAGS      := -Wall -Wextra -Werror
+CFLAGS      := -Wall -Wextra -Werror -g
 CPPFLAGS    := -Iincludes
 
 # ---- Dirs ----
