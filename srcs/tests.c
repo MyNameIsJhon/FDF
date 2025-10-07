@@ -73,7 +73,6 @@ void print_s_map(t_map *map)
 {
 	printf("Map width: %d\n", map->width);
 	printf("Map height: %d\n", map->height);
-	printf("Map position a: (%d,%d)\n", map->position->a.x, map->position->a.y);
 	printf("Map cols: %d\n", map->cols);
 	printf("Map rows: %d\n", map->rows);
 	for (int i = 0; i < map->rows; i++)
