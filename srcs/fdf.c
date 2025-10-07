@@ -64,8 +64,6 @@ static t_map	*init_map(const char *path, t_window *window)
 	return (map);
 }
 
-#include "tests.h"
-
 int	main(int ac, char **av)
 {
 	t_map		*map;
