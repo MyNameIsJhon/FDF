@@ -1,0 +1,7 @@
+fdf - wireframe model viewer
+-------------------------
+Controls:
+Arrow Keys : Move Map
++ / -      : Zoom In/Out
+W / S      : Increase/Decrease Altitude
+R          : Reset View
