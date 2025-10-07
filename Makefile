@@ -27,8 +27,9 @@ SRCS        := \
 	$(SRC_DIR)/map_dimensions.c \
 	$(SRC_DIR)/map_display.c \
 	$(SRC_DIR)/map_reader.c \
-	$(SRC_DIR)/menu_display.c
-	$(SRC_DIR)/tests.c \
+	$(SRC_DIR)/menu_display.c \
+	$(SRC_DIR)/tests.c 
+
 
 OBJS        := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
