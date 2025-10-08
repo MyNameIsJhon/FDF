@@ -105,15 +105,3 @@ static void	parse_map_size(const char *file, t_point *size)
 	if (x > 0)
 		update_line_size(size, &x);
 }
-
-t_point	get_map_size(const char *file)
-{
-	t_point	size;
-
-	if (!file)
-		return ((t_point){0, 0});
-	size.x = 0;
-	size.y = 0;
-	parse_map_size(file, &size);
-	return (size);
-}
