@@ -80,7 +80,7 @@ static void	update_line_size(t_point *size, int *x)
 	*x = 0;
 }
 
-static void	parse_map_size(const char *file, t_point *size)
+void	parse_map_size(const char *file, t_point *size)
 {
 	int	i;
 	int	x;

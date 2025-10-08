@@ -185,6 +185,7 @@ void	init_zoom(t_window *window, t_map *map);
 void	map_offset(t_window *window);
 void	print_menu(t_fdf *env);
 
+void	parse_map_size(const char *file, t_point *size);
 t_point	get_map_size(const char *file);
 t_loc	**read_map(char *file, t_window *win);
 
